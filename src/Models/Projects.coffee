@@ -29,12 +29,12 @@ class Projects extends BaseModel
         @debug "Recurse Projects::all()"
         data = data.concat(retData)
         params.page++
-        return @get "projects", params, cb
+        return @get "projects/all", params, cb
       else
         data = data.concat(retData)
         return fn data if fn
 
-    @get "projects", params, cb
+    @get "projects/all", params, cb
 
   show: (projectId, fn=null) =>
     @debug "Projects::show()"

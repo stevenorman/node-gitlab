@@ -52,10 +52,10 @@ class Users extends BaseModel
 
   block: (userId, fn = null) =>
     @debug "Users::block()"
-    @post "users/#{parseInt userId}/block", {}, (data) -> fn data if fn
+    @put "users/#{parseInt userId}/block", {}, (data) -> fn data if fn
 
   activate: (userId, fn = null) =>
     @debug "Users:unblock()"
-    @post "users/#{parseInt userId}/activate", {}, (data) -> fn data if fn
+    @put "users/#{parseInt userId}/activate", {}, (data) -> fn data if fn
 
 module.exports = (client) -> new Users client
